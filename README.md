@@ -82,7 +82,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
  * It checks local storage to see if the list of podcasts is already there or if it needs to be updated
 
 ### Podcast Line
-PodcastLine component, which is a line in the podcast list. It displays the podcast image, title, and artist name in a line. It also handles the click event of the line, which navigates to the podcast view page. It also sets the podcast details in the context
+ * This component is used to display a single podcast in the list of podcasts
+ * It is used in the PodcastMain component
+ * It displays the image, title and artist of the podcast
+ * On click it navigates to the podcast details page
 
 ### Podcast Details
  * This component displays the details of a podcast

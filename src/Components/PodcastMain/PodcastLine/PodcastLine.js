@@ -10,7 +10,14 @@ export const ARTIST_PROPERTY = "im:artist";
 export const NAME_PROPERTY   = "im:name";
 
 
-
+/**
+ * This component is used to display a single podcast in the list of podcasts
+ * It is used in the PodcastMain component
+ * It displays the image, title and artist of the podcast
+ * On click it navigates to the podcast details page
+ * @param {*} podcast 
+ * @returns {JSX.Element}
+ */
 export default function PodcastLine({ podcast }) {
 	// Get the podcast details from the context
 	const { setPodcast } = useContext(PodcastContext);
