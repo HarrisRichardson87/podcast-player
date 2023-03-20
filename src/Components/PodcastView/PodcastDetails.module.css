@@ -45,7 +45,6 @@
 .list{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
     margin-bottom: 20px;

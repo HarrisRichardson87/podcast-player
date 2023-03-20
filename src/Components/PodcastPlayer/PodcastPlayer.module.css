@@ -33,3 +33,13 @@
     padding: 5px;
     font-size: 1rem;
 }
+
+/** Media Queries **/
+@media (max-width: 768px) {
+    .main{
+        flex-direction: column;
+    }
+    .details{
+        width: 100%;
+    }
+}
