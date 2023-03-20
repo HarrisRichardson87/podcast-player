@@ -6,8 +6,8 @@ export default function PodcastSidebar({ img, title, artist, description }) {
     <div className={`${styles.card} ${styles.blurb}`}>
       <img className={styles.img} src={img} />
       <span className={styles.title}>{title}</span>
-      <p className={styles.artist}>By {artist}</p>
-      <p className={styles.description}>{description}</p>
+      { artist && <p className={styles.artist}>By {artist}</p>}
+      { description && <p className={styles.description}>{description}</p>}
     </div>
   )
 }

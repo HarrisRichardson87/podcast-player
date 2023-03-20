@@ -1,6 +1,6 @@
 .img{
-    height: 20vh;
-    border-bottom: #ccc 1px solid;
+    height: 15vh;
+    width: 15vw;
 }
 
 .blurb{
@@ -10,8 +10,6 @@
 }
 
 .card{
-    display: flex !important;
-    flex-direction: column;
     justify-content: center;
     text-align: center;
     margin: 0 auto;
@@ -21,6 +19,7 @@
     box-shadow: 0 2px 3px #ccc;
     box-sizing: border-box;
     margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 .title{
@@ -29,8 +28,6 @@
     margin-bottom: 20px;
     border-bottom: #ccc 1px solid;
     border-top: #ccc 1px solid;
-    height: 50vh;
-    width: 20vw;
 }
 
 .artist{
