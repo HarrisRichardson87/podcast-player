@@ -22,11 +22,9 @@
 }
 
 .title{
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     margin-bottom: 20px;
-    border-bottom: #ccc 1px solid;
-    border-top: #ccc 1px solid;
 }
 
 .artist{
@@ -39,4 +37,6 @@
     font-size: 1rem;
     margin-bottom: 20px;
     border-bottom: #ccc 1px solid;
+    word-wrap: break-word;
+    
 }

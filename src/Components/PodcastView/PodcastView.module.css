@@ -61,6 +61,15 @@
     margin-bottom: 20px;
 }
 
+.trackList{
+    width: 100%;
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
 .table{
     width: 100%;
     text-align: left;

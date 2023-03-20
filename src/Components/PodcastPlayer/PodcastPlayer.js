@@ -103,13 +103,13 @@ export default function PodcastPlayer() {
 
             <div className={styles.details}>
                 
-                { loading && <Skeleton height={400} width={400} />}
+                { loading && <Skeleton height={400} width={700} />}
 
                 {!loading && 
                     <Fragment>
                         <h1>{episodeDetails?.trackName}</h1>
                         <p className={styles.description}>{episodeDetails?.description}</p>
-                        <audio ref={podcastPlayer} id="podcast-player" controls autoPlay loop >
+                        <audio className={styles.audio} ref={podcastPlayer} id="podcast-player" controls autoPlay loop >
                             <source ref={podcastPlayerSource} id="podcast-player-source" type="audio/mpeg" src={episodeDetails?.trackViewUrl } />
                         </audio>
                     </Fragment>

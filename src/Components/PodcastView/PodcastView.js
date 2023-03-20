@@ -61,7 +61,7 @@ export default function PodcastView() {
 							<h2>Episodes: {trackList.length}</h2>
 						</div>
 
-						<div className={styles.card}>
+						<div className={`${styles.card} ${styles.trackList}`}>
 							<table className={styles.table}>
 								<thead>
 									<tr>
