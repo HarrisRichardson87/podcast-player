@@ -35,15 +35,12 @@
 .artist{
     font-size: 1rem;
     margin-bottom: 20px;
-    border-bottom: #ccc 1px solid;
 }
 
 .description{
     font-size: 1rem;
     margin-bottom: 20px;
-    border-bottom: #ccc 1px solid;
     word-wrap: break-word;
-    
 }
 
 /** Media Queries **/

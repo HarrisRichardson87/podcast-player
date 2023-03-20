@@ -39,18 +39,14 @@ export default function PodcastPlayer() {
         
     }, [id, episodeId])
 
-    const initEpisode = function(episodeDetails) {
+    const initEpisode = async function(episodeDetails) {
         // Get the first episode details from the API, it is the first item in the array
-
         setEpisodeDetails(episodeDetails);
 
-        // Play the episode
-        podcastPlayerSource.current.src = episodeDetails.trackViewUrl;
+        // Set the podcast player source to the episode url
+        podcastPlayerSource.current.src = episodeDetails.episodeUrl;
 
-        // Load the episode
-        podcastPlayer.current.load();
-
-        // Play the episode
+        // Play the podcast
         podcastPlayer.current.play();
     }
 
@@ -116,8 +112,15 @@ export default function PodcastPlayer() {
                             className={styles.description}
                             dangerouslySetInnerHTML={{__html: episodeDetails?.description}}
                         />
-                        <audio className={styles.audio} ref={podcastPlayer} id="podcast-player" controls autoPlay loop >
-                            <source ref={podcastPlayerSource} id="podcast-player-source" type="audio/mpeg" src={episodeDetails?.trackViewUrl } />
+                      
+                        <audio
+                            autoPlay
+                            ref={podcastPlayer}
+                            controls
+                            src={episodeDetails?.episodeUrl}
+                        >
+                            Your browser does not support the
+                            <code>audio</code> element.
                         </audio>
                     </Fragment>
                 }
