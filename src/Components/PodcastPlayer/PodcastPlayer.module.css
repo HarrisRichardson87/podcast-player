@@ -1,0 +1,28 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    width: 70vw;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px #ccc;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+.description{
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-style: italic;
+}

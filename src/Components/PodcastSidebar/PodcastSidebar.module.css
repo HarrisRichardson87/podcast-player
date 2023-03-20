@@ -1,0 +1,46 @@
+.img{
+    height: 20vh;
+    border-bottom: #ccc 1px solid;
+}
+
+.blurb{
+    width: 21vw;
+    height: 40vh;
+    margin-top: 20px;
+}
+
+.card{
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px #ccc;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.title{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: #ccc 1px solid;
+    border-top: #ccc 1px solid;
+    height: 50vh;
+    width: 20vw;
+}
+
+.artist{
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border-bottom: #ccc 1px solid;
+}
+
+.description{
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border-bottom: #ccc 1px solid;
+}

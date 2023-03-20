@@ -1,0 +1,21 @@
+.trackLine:hover{
+    cursor: pointer;
+}
+.title{
+    color:#2196F3;
+}
+.oddRow{
+    background-color: #ffffff;
+}
+
+.evenRow{
+    background-color: #f5f5f5;
+}
+
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
