@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { PodcastContext } from '../../PodcastContext/PodcastContext';
 
 // Constants for the properties of the podcast object
-const ID_PROPERTY = "im:id";
+export const ID_PROPERTY = "im:id";
 export const IMAGE_PROPERTY  = "im:image";
 export const ARTIST_PROPERTY = "im:artist";
 export const NAME_PROPERTY   = "im:name";

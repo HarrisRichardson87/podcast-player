@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PodcastSidebar from '../PodcastSidebar/PodcastSidebar';
 import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css'
+import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function PodcastPlayer() {
     // Get the id and episodeId from the url
@@ -81,7 +81,7 @@ export default function PodcastPlayer() {
                 // Set the episode details state variable to the details from the API
                 initEpisode(episode);
 
-                // Save the episode details in client storage
+                // Save the episode details in client storage and update timestamp
                 localStorage.setItem(episodeId, JSON.stringify(episode));
 
                 // Set loading to false
@@ -108,7 +108,10 @@ export default function PodcastPlayer() {
                 {!loading && 
                     <Fragment>
                         <h1>{episodeDetails?.trackName}</h1>
-                        <p className={styles.description}>{episodeDetails?.description}</p>
+                        <div 
+                            className={styles.description}
+                            dangerouslySetInnerHTML={{__html: episodeDetails?.description}}
+                        />
                         <audio className={styles.audio} ref={podcastPlayer} id="podcast-player" controls autoPlay loop >
                             <source ref={podcastPlayerSource} id="podcast-player-source" type="audio/mpeg" src={episodeDetails?.trackViewUrl } />
                         </audio>

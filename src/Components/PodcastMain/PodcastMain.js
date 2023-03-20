@@ -14,10 +14,9 @@ export default function PodcastMain() {
     useEffect(() => {
         // Check the date of the last update
         const lastUpdate  = localStorage.getItem('lastUpdate');
-        const currentDate = new Date().getTime();
 
         // If the last update was less than 24 hours ago, get the list from client storage
-        if (lastUpdate && currentDate - lastUpdate < TWENTY_FOUR_HOURS) {
+        if (lastUpdate && !hasItBeenADaySinceLastUpdate(lastUpdate)) {
 
             // Get the list from client storage
             const podcastList = JSON.parse(localStorage.getItem('podcastList'));
@@ -34,7 +33,19 @@ export default function PodcastMain() {
 
         // Otherwise, get the list from the API
         getListOfPodcasts();
-    }, [])
+    }, []);
+
+    const hasItBeenADaySinceLastUpdate = (lastUpdate) => {
+        // Convert the last update time to a date object
+        lastUpdate = new Date(lastUpdate).getTime();
+
+        // Get the current time in milliseconds
+        const ONE_DAY = 1000 * 60 * 60 * 24;
+        const now = new Date().getTime();
+
+        // If the last update was more than a day ago, return true
+        return now - lastUpdate >= ONE_DAY;
+    }
 
     // I am using to fetch the data from the API to get the list of podcasts
     const getListOfPodcasts = () => {
