@@ -46,6 +46,9 @@ export default function PodcastPlayer() {
         // Set the podcast player source to the episode url
         podcastPlayerSource.current.src = episodeDetails.episodeUrl;
 
+        // Load the podcast player
+        await podcastPlayer.current.load();
+
         // Play the podcast
         podcastPlayer.current.play();
     }
