@@ -82,6 +82,7 @@ export default function PodcastPlayer() {
                 img={episodeDetails?.artworkUrl600}
                 title={episodeDetails?.collectionName}
                 artist={episodeDetails?.artistName}
+                description={episodeDetails?.description}
             />
 
             <div className={styles.details}>

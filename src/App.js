@@ -8,18 +8,21 @@ import {
   Route,
 } from "react-router-dom";
 import Layout from './Components/PodcastAppLayout/Layout';
+import PodcastContextProvider from './Components/PodcastContext/PodcastContext';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<PodcastMain />} />
-            <Route path="/podcast-view/:id" element={<PodcastView />} />
-            <Route path="/podcast/:id/episode/:episodeId" element={<PodcastPlayer />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <PodcastContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<PodcastMain />} />
+              <Route path="/podcast-view/:id" element={<PodcastView />} />
+              <Route path="/podcast/:id/episode/:episodeId" element={<PodcastPlayer />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </PodcastContextProvider>
     </div>
   );
 }

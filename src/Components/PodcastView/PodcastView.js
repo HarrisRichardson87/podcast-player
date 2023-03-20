@@ -3,9 +3,14 @@ import { useParams } from 'react-router-dom';
 import PodcastTrackLine from './PodcastTrackLine/PodcastTrackLine';
 import styles from './PodcastView.module.css';
 import PodcastSidebar from '../PodcastSidebar/PodcastSidebar';
-
+import PodcastContext from '../PodcastContext/PodcastContext';
 export default function PodcastView() {
+  // use context to get the podcast details
+  const { podcast, setPodcast } = React.useContext(PodcastContext);
+
+  // use params to get the podcast id
   const { id } = useParams();
+
   const [ podcastDetails, setPodcastDetails ] = React.useState(null);
   const [ trackList,      setTrackList      ] = React.useState(null);
 
@@ -22,7 +27,6 @@ export default function PodcastView() {
     
     // Call the API to get the podcast details
     getPodcastDetails();
-
   }, [])
 
   const initPodcast = function(podcastDetails) {
