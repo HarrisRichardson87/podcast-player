@@ -13,7 +13,7 @@ export default function PodcastMain() {
     
     useEffect(() => {
         // Check the date of the last update
-        const lastUpdate = localStorage.getItem('lastUpdate');
+        const lastUpdate  = localStorage.getItem('lastUpdate');
         const currentDate = new Date().getTime();
 
         // If the last update was less than 24 hours ago, get the list from client storage
@@ -67,7 +67,6 @@ export default function PodcastMain() {
 
     return (
         <div className={styles.main}>
-
             <div className={styles.podcastList}>
                 <div className={styles.actions}>
                     <span className={styles.count}>{filteredPodcastList.length}</span>
