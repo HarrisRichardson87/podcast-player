@@ -113,6 +113,7 @@ export default function PodcastPlayer() {
                       
                         {/* PODCAST PLAYER */}
                         <audio
+                            className={styles.player}
                             autoPlay
                             ref={podcastPlayer}
                             controls
