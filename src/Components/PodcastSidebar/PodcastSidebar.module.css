@@ -45,3 +45,10 @@
     word-wrap: break-word;
     
 }
+
+/** Media Queries **/
+@media (max-width: 768px) {
+    .sidebar{
+        width: 100%;
+    }
+}

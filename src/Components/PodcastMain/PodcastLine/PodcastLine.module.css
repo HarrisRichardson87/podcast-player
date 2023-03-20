@@ -55,3 +55,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+/** Media Queries **/
+@media (max-width: 768px) {
+    .podcast{
+        width: 100%;
+        height: 20vh;
+    }
+}
