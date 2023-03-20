@@ -3,11 +3,13 @@ import styles from './PodcastTrackLine.module.css';
 import { useNavigate } from 'react-router-dom';
 
 // Constants for converting milliseconds to hours, minutes, and seconds
-const HOURS = 3600000;
+const HOURS   = 3600000;
 const MINUTES = 60000;
 const SECONDS = 1000;
 
 export default function PodcastTrackLine({ track, index }) {
+
+    // Get the navigate function from react router
     const navigate = useNavigate();
     
     const getTrackTime = () => {
@@ -29,6 +31,7 @@ export default function PodcastTrackLine({ track, index }) {
         // If there are no hours, then show the minutes and seconds
         return `${minutes}:${seconds}`;
     }
+
     const handleClick = (e) => {
         // Prevent the default action of the click
         e.preventDefault();
@@ -52,14 +55,17 @@ export default function PodcastTrackLine({ track, index }) {
         return styles.evenRow;
     }
 
-  return (
-    <tr className={`${styles.trackLine} ${getRowColor()}`} onClick={handleClick}> 
+    return (
+        <tr className={`${styles.trackLine} ${getRowColor()}`} onClick={handleClick}> 
 
-        <td className={`${styles.left} ${styles.title}`}>{track.trackName}</td>
+            {/* NAME */}
+            <td className={`${styles.left} ${styles.title}`}>{track.trackName}</td>
 
-        <td>{new Date(track.releaseDate).toLocaleDateString()}</td>
+            {/* DATE */}
+            <td>{new Date(track.releaseDate).toLocaleDateString()}</td>
 
-        <td className={styles.right}>{getTrackTime()}</td>
-    </tr>
-  )
+            {/* TIME */}
+            <td className={styles.right}>{getTrackTime()}</td>
+        </tr>
+    )
 }

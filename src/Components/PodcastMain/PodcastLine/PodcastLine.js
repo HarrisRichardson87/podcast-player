@@ -9,7 +9,6 @@ export const IMAGE_PROPERTY  = "im:image";
 export const ARTIST_PROPERTY = "im:artist";
 export const NAME_PROPERTY   = "im:name";
 
-
 /**
  * This component is used to display a single podcast in the list of podcasts
  * It is used in the PodcastMain component
@@ -40,8 +39,13 @@ export default function PodcastLine({ podcast }) {
 	}
 	return (
 		<div onClick={handleClick} className={styles.podcast}>
+			{/* IMAGE */}
 			<img  className={styles.circleImg} src={podcast[IMAGE_PROPERTY][2].label} />
+
+			{/* TITLE */}
 			<span className={styles.title}>{podcast[NAME_PROPERTY].label}</span>
+
+			{/* ARTIST */}
 			<span className={styles.artist}>{podcast[ARTIST_PROPERTY].label}</span>
 		</div>
 	)

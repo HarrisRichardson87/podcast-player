@@ -1,5 +1,5 @@
-import styles from './PodcastSidebar.module.css';
 import React, { Fragment } from 'react'
+import styles from './PodcastSidebar.module.css';
 
 // Properties of the podcast object
 import { IMAGE_PROPERTY, ARTIST_PROPERTY, NAME_PROPERTY, ID_PROPERTY } from '../PodcastMain/PodcastLine/PodcastLine';
@@ -31,13 +31,16 @@ export default function PodcastSidebar() {
 		<div className={`${styles.card} ${styles.sidebar}`}>
 			{ podcast && 
 				<Fragment>
-					
+					{/* IMAGE */}
 					<img className={styles.img} src={podcast[IMAGE_PROPERTY][2].label}  onClick={handleClick}/>
 					
+					{/* TITLE */}
 					<span className={styles.title} onClick={handleClick}>{podcast[NAME_PROPERTY].label}</span>
 					
+					{/* ARTIST */}
 					<p className={styles.artist}>By {podcast[ARTIST_PROPERTY].label}</p>
 					
+					{/* DESCRIPTION */}
 					<p className={styles.description}>{podcast?.summary.label}</p>
 				</Fragment>
 			}

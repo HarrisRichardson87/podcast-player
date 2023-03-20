@@ -6,7 +6,7 @@ export const PodcastContext = React.createContext();
  * It also checks local storage to see if the podcast details are already there
  * It uses the id from the url to get the podcast details
  * @param {id} param  
- * @returns 
+ * @returns {JSX.Element}
  */
 export default function PodcastContextProvider ({ children }) {
     // use params to get the podcast id

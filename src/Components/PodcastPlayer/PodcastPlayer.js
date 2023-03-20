@@ -2,8 +2,6 @@ import styles from './PodcastPlayer.module.css';
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PodcastSidebar from '../PodcastSidebar/PodcastSidebar';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
 /**
  * This component is the podcast player, it plays the podcast episode, and displays the episode details.
  * it also displays the podcast details in the sidebar and allows the user to navigate to the podcast view page.
@@ -18,8 +16,7 @@ export default function PodcastPlayer() {
     const [ episodeDetails, setEpisodeDetails ] = useState(null);
 
     // Create a ref to the podcast player
-    const podcastPlayer       = useRef();
-    const podcastPlayerSource = useRef();
+    const podcastPlayer = useRef();
 
     // loading state
     const [loading, setLoading] = useState(false);
@@ -30,6 +27,7 @@ export default function PodcastPlayer() {
 
         // If the episode details are in local storage, set the episode details state variable to the details from local storage
         if (episodeDetails) {
+            
             // Set the episode details state variable to the details from local storage
             initEpisode(JSON.parse(episodeDetails));
             return;
@@ -37,9 +35,9 @@ export default function PodcastPlayer() {
         // Call the API to get the episode details
         getEpisodeDetails();
         
-    }, [id, episodeId])
+    }, [id, episodeId]) // Call the useEffect function when the id or episodeId changes
 
-    const initEpisode = async function(episodeDetails) {
+    const initEpisode = function(episodeDetails) {
         // Get the first episode details from the API, it is the first item in the array
         setEpisodeDetails(episodeDetails);
     }
@@ -49,8 +47,6 @@ export default function PodcastPlayer() {
         if (!isNaN(id)) 
             return `https://api.allorigins.win/get?url=${encodeURIComponent(`https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=20`)}`;
     }
-
-
     const getEpisodeDetails = () => {
         // Get the url for the API call
         const url = getUrl();
@@ -92,21 +88,30 @@ export default function PodcastPlayer() {
 
     return (
         <div className={styles.main}>
-            
+            {/* SIDEBAR */}
             <PodcastSidebar/>
 
             <div className={styles.details}>
-                
-                { loading && <p> ...loading </p> }
+
+                {/* LOADING */}
+                { loading &&
+                    <div className={styles.loading}>
+                        <div className={styles.spinner}></div>
+                    </div>
+                }
 
                 {!loading && 
                     <Fragment>
+                        {/* EPISODE DETAILS */}
                         <h1>{episodeDetails?.trackName}</h1>
+
+                        {/* DESCRIPTION */}
                         <div 
                             className={styles.description}
                             dangerouslySetInnerHTML={{__html: episodeDetails?.description}}
                         />
                       
+                        {/* PODCAST PLAYER */}
                         <audio
                             autoPlay
                             ref={podcastPlayer}

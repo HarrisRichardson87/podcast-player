@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import PodcastLine from './PodcastLine/PodcastLine';
 import styles from './PodcastMain.module.css';
-// 24 hours in milliseconds
-const TWENTY_FOUR_HOURS = 86400000;
 /**
  * This is the main component for the podcast app
  * It contains the list of podcasts

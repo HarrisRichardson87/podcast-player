@@ -16,6 +16,9 @@ export default function PodcastDetails() {
 	// use params to get the podcast id
 	const { id } = useParams();
 
+	// loading state
+	const [ loading, setLoading ] = React.useState(false);
+
 	const [ podcastDetails, setPodcastDetails ] = React.useState(null);
 	const [ trackList,      setTrackList      ] = React.useState(null);
 
@@ -35,7 +38,7 @@ export default function PodcastDetails() {
 		getPodcastDetails();
 	}, []);
 
-	const hasItBeenADaySinceLastUpdate = (lastUpdate) => {
+	const hasItBeenADaySinceLastUpdate = function (lastUpdate){
 		// Convert the last update time to a date object
 		lastUpdate = new Date(lastUpdate).getTime();
 
@@ -49,18 +52,27 @@ export default function PodcastDetails() {
 
 	const initPodcast = function(podcastDetails) {
 		// Get the first podcast details from the API, it is the first item in the array
-		setPodcastDetails(podcastDetails[0]);
+		setPodcastDetails(podcastDetails.results[0]);
 
 		// Get the list of tracks from the API, it is the rest of the items in the array
-		setTrackList(podcastDetails.slice(1));
+		setTrackList(podcastDetails.results.slice(1));
 	}
+	
+	const getUrl = () => {
+        // If the id is a number, then it is a podcast id
+        if (!isNaN(id)) 
+            return `https://api.allorigins.win/get?url=${encodeURIComponent(`https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=20`)}`;
+	}		
 
 	const getPodcastDetails = () => {
-		fetch(`https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=20`)
+		// Set the loading state to true
+		setLoading(true);
+
+		fetch(getUrl())
 		.then(response => response.json())
 		.then(data => {
 			// Get the first podcast details from the API
-			const podcastDetails = data.results;
+			const podcastDetails = JSON.parse(data.contents);
 
 			// Set the podcast details state variable to the details from the API
 			initPodcast(podcastDetails);
@@ -68,21 +80,40 @@ export default function PodcastDetails() {
 			// Save the podcast details in client storage
 			localStorage.setItem(id, JSON.stringify(podcastDetails));
 			localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE + id, new Date().getTime());
-		}).catch(error => console.log(error));
+
+			// Set the loading state to false
+			setLoading(false);
+		}).catch(error => {
+			setLoading(false);
+			console.log(error);
+		});
 	}
 
 	return (
 		<div>
-			{podcastDetails && (
+
+			{/* LOADING */}
+			{ loading &&
+				<div className={styles.loading}>
+					<div className={styles.spinner}></div>
+				</div>
+			}
+
+			{podcastDetails && !loading &&(
 				<div className={styles.main}>
-					
+
+					{/* SIDEBAR */}
 					{ podcastDetails && <PodcastSidebar />}
 
+					{/* PODCAST DETAILS */}
 					<div className={styles.list}>
+
+						{/* COUNT */}
 						<div className={`${styles.card} ${styles.count}`}>
 							<h2>Episodes: {trackList.length}</h2>
 						</div>
 
+						{/* TRACKLIST */}
 						<div className={`${styles.card} ${styles.trackList}`}>
 							<table className={styles.table}>
 								<thead>

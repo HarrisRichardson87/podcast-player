@@ -21,6 +21,22 @@
     margin-bottom: 20px;
 }
 
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.spinner{
+    width: 100px;
+    height: 100px;
+    border: 10px solid #ccc;
+    border-top: 10px solid #333;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
 .description{
     font-size: 1rem;
     margin-bottom: 20px;
