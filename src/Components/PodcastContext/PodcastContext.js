@@ -1,7 +1,13 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 export const PodcastContext = React.createContext();
-
+/**
+ * This is the context provider for the podcast details, which is used to pass the podcast details to the podcast view page
+ * It also checks local storage to see if the podcast details are already there
+ * It uses the id from the url to get the podcast details
+ * @param {id} param  
+ * @returns 
+ */
 export default function PodcastContextProvider ({ children }) {
     // use params to get the podcast id
 	const { id } = useParams();

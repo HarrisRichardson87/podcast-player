@@ -4,7 +4,11 @@ import { useParams } from 'react-router-dom';
 import PodcastSidebar from '../PodcastSidebar/PodcastSidebar';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-
+/**
+ * This component is the podcast player, it plays the podcast episode, and displays the episode details.
+ * it also displays the podcast details in the sidebar and allows the user to navigate to the podcast view page.
+ * @returns {JSX.Element}
+ */
 export default function PodcastPlayer() {
     // Get the id and episodeId from the url
     const id        = useParams().id;

@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import PodcastTrackLine from './PodcastTrackLine/PodcastTrackLine';
-import styles from './PodcastView.module.css';
+import styles from './PodcastDetails.module.css';
 import PodcastSidebar from '../PodcastSidebar/PodcastSidebar';
 const LOCAL_STORAGE_KEY_UPDATE = 'lastupdate';
 
-export default function PodcastView() {
+/**
+ * This component displays the details of a podcast
+ * It also checks local storage to see if the podcast details are already there
+ * It uses the id from the url to get the podcast details
+ * @param {id} param
+ * @returns {JSX.Element}
+ */
+export default function PodcastDetails() {
 	// use params to get the podcast id
 	const { id } = useParams();
 

@@ -38,7 +38,6 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -68,3 +67,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Components ###
+### Podcast Context
+ * Provider for the podcast details, which is used to pass the podcast details to the podcast view page
+ * It also checks local storage to see if the podcast details are already there
+ * It uses the id from the url to get the podcast details
+
+#### Podcast Main
+ * This is the main component for the podcast app
+ * It contains the list of podcasts
+ * It also contains the search bar
+ * It checks local storage to see if the list of podcasts is already there or if it needs to be updated
+
+### Podcast Line
+PodcastLine component, which is a line in the podcast list. It displays the podcast image, title, and artist name in a line. It also handles the click event of the line, which navigates to the podcast view page. It also sets the podcast details in the context
+
+### Podcast Details
+ * This component displays the details of a podcast
+ * It also checks local storage to see if the podcast details are already there
+ * It uses the id from the url to get the podcast details
+
+### Podcast Player
+ * It plays the podcast episode, and displays the episode details.
+ * it also displays the podcast details in the sidebar and allows the user to navigate to the podcast view page.
+

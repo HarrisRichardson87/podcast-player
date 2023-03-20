@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react'
 import PodcastLine from './PodcastLine/PodcastLine';
 import styles from './PodcastMain.module.css';
-
 // 24 hours in milliseconds
 const TWENTY_FOUR_HOURS = 86400000;
+/**
+ * This is the main component for the podcast app
+ * It contains the list of podcasts
+ * It also contains the search bar
+ * It checks local storage to see if the list of podcasts is already there or if it needs to be updated
+ * @returns {JSX} The main component for the podcast app
+ */
 export default function PodcastMain() {
     // Create a state variable for the podcast list
     const [ podcastList, setPodcastList ] = React.useState([]);

@@ -14,7 +14,10 @@
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "ui-lab": "^0.1.11",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.76.2",
+    "babel-loader": "^9.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1"
   },
   "scripts": {
     "start": "react-scripts start",
