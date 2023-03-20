@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom';
 import PodcastTrackLine from './PodcastTrackLine/PodcastTrackLine';
 import styles from './PodcastView.module.css';
 import PodcastSidebar from '../PodcastSidebar/PodcastSidebar';
-import PodcastContext from '../PodcastContext/PodcastContext';
+import { PodcastContext } from '../PodcastContext/PodcastContext';
 export default function PodcastView() {
-  // use context to get the podcast details
-  const { podcast, setPodcast } = React.useContext(PodcastContext);
+  // Get the podcast details from the context
+  const { podcast, setPodcast } = useContext(PodcastContext);
 
   // use params to get the podcast id
   const { id } = useParams();
@@ -30,6 +30,9 @@ export default function PodcastView() {
   }, [])
 
   const initPodcast = function(podcastDetails) {
+    // set the podcast details in the context
+    setPodcast(podcastDetails[0]);
+    
     // Get the first podcast details from the API, it is the first item in the array
     setPodcastDetails(podcastDetails[0]);
 
@@ -57,11 +60,7 @@ export default function PodcastView() {
       {podcastDetails && (
         <div className={styles.main}>
 
-          <PodcastSidebar 
-            img={podcastDetails.artworkUrl600} 
-            title={podcastDetails.collectionName}
-            artist={podcastDetails.artistName}
-            description={podcastDetails.description}/>
+          { podcastDetails && <PodcastSidebar />}
 
           <div className={styles.list}>
             <div className={`${styles.card} ${styles.count}`}>

@@ -1,18 +1,16 @@
-import PodcastMain from './Components/PodcastMain/PodcastMain';
-import PodcastView from './Components/PodcastView/PodcastView';
-import PodcastPlayer from './Components/PodcastPlayer/PodcastPlayer';
 import React from 'react';
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
+import PodcastMain from './Components/PodcastMain/PodcastMain';
+import PodcastView from './Components/PodcastView/PodcastView';
+import PodcastPlayer from './Components/PodcastPlayer/PodcastPlayer';
 import Layout from './Components/PodcastAppLayout/Layout';
-import PodcastContextProvider from './Components/PodcastContext/PodcastContext';
 function App() {
   return (
     <div className="App">
-      <PodcastContextProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -22,7 +20,6 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-      </PodcastContextProvider>
     </div>
   );
 }
