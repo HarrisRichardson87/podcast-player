@@ -66,12 +66,16 @@ export default function PodcastView() {
 
             <div className={styles.card}>
               <table className={styles.table}>
-                <tr>
-                  <th className={styles.left}>Title</th>
-                  <th>Date</th>
-                  <th>Duration</th>
-                </tr>
-                {trackList.map((x,i) => <PodcastTrackLine key={x.trackId} track={x} index={i} />)}
+                <thead>
+                  <tr>
+                    <th className={styles.left}>Title</th>
+                    <th>Date</th>
+                    <th>Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {trackList.map((x,i) => <PodcastTrackLine key={x.trackId} track={x} index={i} />)}
+                </tbody>
               </table>
             </div>
           </div>
