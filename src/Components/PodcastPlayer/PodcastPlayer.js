@@ -42,15 +42,6 @@ export default function PodcastPlayer() {
     const initEpisode = async function(episodeDetails) {
         // Get the first episode details from the API, it is the first item in the array
         setEpisodeDetails(episodeDetails);
-
-        // Set the podcast player source to the episode url
-        podcastPlayerSource.current.src = episodeDetails.episodeUrl;
-
-        // Load the podcast player
-        await podcastPlayer.current.load();
-
-        // Play the podcast
-        podcastPlayer.current.play();
     }
 
     const getUrl = () => {
@@ -106,7 +97,7 @@ export default function PodcastPlayer() {
 
             <div className={styles.details}>
                 
-                { loading && <Skeleton height={400} width={700} />}
+                { loading && <p> ...loading </p> }
 
                 {!loading && 
                     <Fragment>
